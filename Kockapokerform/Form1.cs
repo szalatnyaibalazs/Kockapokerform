@@ -17,9 +17,15 @@ namespace Kockapokerform
         private Dobas ember;
         private PictureBox[] gepKep;
         private PictureBox[] emberKep;
+        public int korokSzama { get; set; }
+        private int AktualisKor = 1;
         public frmFo()
         {
             InitializeComponent();
+            korokSzama = 0;
+            frmKezdo Kezdo = new frmKezdo(this);
+            Kezdo.ShowDialog();
+            
             gepKep = new PictureBox[5] { pbGep1, pbGep2, pbGep3, pbGep4, pbGep5 };
             emberKep = new PictureBox[5] { pbEmber1, pbEmber2, pbEmber3, pbEmber4, pbEmber5 };
 
@@ -83,19 +89,40 @@ namespace Kockapokerform
 
             if (gep.Pont>ember.Pont)
             {
-                MessageBox.Show("Gép nyert","Játszott kör",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Gép nyert",$"Játszott kör:{AktualisKor}",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 gep.Nyert++;
                 lblGeperedmeny.Text = gep.Nyert.ToString();
             }
             else if (ember.Pont>gep.Pont)
             {
-                MessageBox.Show("Ember nyert", "Játszott kör", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ember nyert", $"Játszott kör{AktualisKor}", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ember.Nyert++;
                 lblEmbereredmeny.Text = ember.Nyert.ToString();
             }
             else
             {
-                MessageBox.Show("Döntetlen", "Játszott kör", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Döntetlen", $"Játszott kör:{AktualisKor}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            AktualisKor++;
+            if (korokSzama < AktualisKor)
+            {
+                StringBuilder kimenet = new StringBuilder("Véget ért a játék");
+                if (gep.Nyert>ember.Nyert)
+                {
+                    kimenet.Append(" Vesztettél");
+                }
+                else if (ember.Nyert>gep.Nyert)
+                {
+                    kimenet.Append(" Nyertél");
+                }
+                else
+                {
+                    kimenet.Append(" Döntetlen");
+                }
+                
+                MessageBox.Show(kimenet.ToString(),"Véget ért a játék",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                
+                Application.Exit();
             }
         }
     }
