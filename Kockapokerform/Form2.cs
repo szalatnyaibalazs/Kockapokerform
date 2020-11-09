@@ -24,12 +24,15 @@ namespace Kockapokerform
         {
             foform.korokSzama = 3;
             foform.Text += " | A körök száma 3";
+            this.Close();
         }
 
         private void btnOt_Click(object sender, EventArgs e)
         {
             foform.korokSzama = 5;
             foform.Text += " | A körök száma 5";
+            this.Close();
+
         }
 
         private void frmKezdo_FormClosing(object sender, FormClosingEventArgs e)

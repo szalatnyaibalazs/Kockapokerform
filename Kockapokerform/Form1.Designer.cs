@@ -188,7 +188,7 @@
             // 
             // btnDobas
             // 
-            this.btnDobas.Location = new System.Drawing.Point(353, 498);
+            this.btnDobas.Location = new System.Drawing.Point(353, 513);
             this.btnDobas.Name = "btnDobas";
             this.btnDobas.Size = new System.Drawing.Size(75, 23);
             this.btnDobas.TabIndex = 14;
@@ -222,6 +222,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Kockapokerform.Properties.Resources.poker;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(780, 557);
             this.Controls.Add(this.lblEmbereredmeny);
             this.Controls.Add(this.lblGeperedmeny);
@@ -243,7 +245,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmFo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kockapóker";
